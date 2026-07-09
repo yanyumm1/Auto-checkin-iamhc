@@ -3,8 +3,8 @@ name: iamhc Daily Checkin
 on:
   schedule:
     # 每天 UTC 23:00 运行（即北京时间次日 07:00）
-    - cron: '0 23 * * *'
-  workflow_dispatch: # 支持手动触发
+    - cron: '0 20 * * *'
+  workflow_dispatch:
 
 jobs:
   checkin:
@@ -58,6 +58,4 @@ jobs:
 
           git add time.txt
           git commit -m "Update time.txt" || exit 0
-
-          git pull --rebase origin "${GITHUB_REF_NAME}"
-          git push origin "${GITHUB_REF_NAME}"
+          git push
